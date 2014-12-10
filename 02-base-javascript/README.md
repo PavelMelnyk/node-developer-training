@@ -52,17 +52,17 @@
 
 11.2 What are the methods in the string? How to use them? (with examples)
 
-## 12. Array
+## 12. Number
 
-12.1 What are the ways to create array? (with examples)
+12.1 What are the ways to create number? (with examples)
 
-12.2 What are the methods in the an array? How to use them? (with examples)
+12.2 What are the methods in the an number? How to use them? (with examples)
 
-## 13. Number
+## 13. Array
 
-13.1 What are the ways to create number? (with examples)
+13.1 What are the ways to create array? (with examples)
 
-13.2 What are the methods in the an number? How to use them? (with examples)
+13.2 What are the methods in the an array? How to use them? (with examples)
 
 ## 14. Function `parseInt`
 
