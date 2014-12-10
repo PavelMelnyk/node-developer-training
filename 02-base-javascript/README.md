@@ -58,7 +58,7 @@
 
 13.1 What are the ways to create an object? (with examples)
 
-13..2 What are the methods in the object? How to use them? (with examples)
+13.2 What are the methods in the object? How to use them? (with examples)
 
 13.3 What are some ways to get the properties of the object? (with examples)
 
