@@ -38,26 +38,32 @@
 
 9.1 What are the good and bad cases of using iterator `each`? (with examples)
 
-## 10. parseInt
+## 10. Objects
 
-10.1 What are the good and bad cases of using `parseInt`? (with examples)
+10.1 What are the ways to create an object? (with examples)
 
-## 11. Objects
+10.2 What are the methods in the object? How to use them? (with examples)
 
-11.1 What are the ways to create an object? (with examples)
+10.3 What are some ways to get the properties of the object? (with examples)
 
-11.2 What are the methods in the object? How to use them? (with examples)
+## 11. String
 
-11.3 What are some ways to get the properties of the object? (with examples)
+11.1 What are the ways to create string? (with examples)
 
-## 12. String
+11.2 What are the methods in the string? How to use them? (with examples)
 
-12.1 What are the ways to create string? (with examples)
+## 12. Array
 
-12.2 What are the methods in the string? How to use them? (with examples)
+12.1 What are the ways to create array? (with examples)
 
-## 13. Array
+12.2 What are the methods in the an array? How to use them? (with examples)
 
-13.1 What are the ways to create array? (with examples)
+## 13. Number
 
-13.2 What are the methods in the an array? How to use them? (with examples)
+13.1 What are the ways to create number? (with examples)
+
+13.2 What are the methods in the an number? How to use them? (with examples)
+
+## 14. Function `parseInt`
+
+14.1 What are the good and bad cases of using `parseInt`? (with examples)
