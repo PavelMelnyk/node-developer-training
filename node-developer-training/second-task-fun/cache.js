@@ -6,16 +6,18 @@ console.log('Pleas create your object with \n   var varName = new Cache(); \n or
 
 function Cache() {
     var storage = {},
+        len = 0;
         me = {
             add: function (key, value) {
-                if (storage[key] === undefined) {
+                if (storage[key] === undefined && value !== undefined && key !== undefined) {
                     if (Object.prototype.toString.call(value) === "[object Object]") {
                         value = JSON.stringify(value);
                     }
 
                     storage[key] = value;
                     return me;
-                } throw '"'+key+'" already exist'
+                }
+                throw 'can\'t add "'+key+'"';
             },
             get: function (key) {
                 return storage[key] || false;
@@ -37,17 +39,26 @@ function Cache() {
                 }
             },
             clean: function (value) {
-                var num = 0;
                 for (el in storage) {
                     if (storage[el] === value) {
                         delete storage[el];
-                        num++;
                     }
                 }
                 return me;
             },
             getStorage: function () {
                 return storage;
+            },
+            getSize: function (key) {
+                if (storage[key] !== undefined) {
+                    return storage[key].length;
+                } else {
+                    len = 0;
+                    for (key in storage) {
+                        len += storage[key].toString().length;
+                    }
+                    return len;
+                }
             }
 
         }
