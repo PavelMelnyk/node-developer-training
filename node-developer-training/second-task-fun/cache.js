@@ -2,7 +2,8 @@
  * Created by pavelmelnyk on 12.12.14.
  */
 
-console.log('Pleas create your object with \n   var varName = new Cache(); \n or\n   var varName = Cache(); \n and use it.\n          Have fun =)\n');
+console.log('Pleas create your object with \n   var varName = new Cache(); \n or\n'+
+            '   var varName = Cache(); \n and use it.\n          Have fun =)\n');
 
 function Cache() {
     var storage = {},
@@ -59,6 +60,17 @@ function Cache() {
                     }
                     return len;
                 }
+            },
+            find: function (needl) {
+                result = [];
+                for (element in storage) {
+                    if(storage[element].toString().search(RegExp(needl))) {
+                        resultObject = {};
+                        resultObject[element] = storage[element];
+                        result.push(resultObject);
+                    }
+                }
+                return result;
             }
 
         }
