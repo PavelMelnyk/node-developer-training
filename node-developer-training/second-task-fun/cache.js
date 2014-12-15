@@ -2,77 +2,82 @@
  * Created by pavelmelnyk on 12.12.14.
  */
 
-console.log('Pleas create your object with \n   var varName = new Cache(); \n or\n'+
-            '   var varName = Cache(); \n and use it.\n          Have fun =)\n');
+console.log('Pleas create your object with \n   var varName = new Cache(); \n or\n' +
+'   var varName = Cache(); \n and use it.\n          Have fun =)\n');
 
 function Cache() {
-    var storage = {},
-        len = 0;
-        me = {
-            add: function (key, value) {
-                if (storage[key] === undefined && value !== undefined && key !== undefined) {
-                    if (Object.prototype.toString.call(value) === "[object Object]") {
-                        value = JSON.stringify(value);
-                    }
 
-                    storage[key] = value;
-                    return me;
-                }
-                throw 'can\'t add "'+key+'"';
-            },
-            get: function (key) {
-                return storage[key] || false;
-            },
-            update: function (key, value) {
-                if (storage[key] !== undefined && value !== undefined) {
-                    storage[key] = value;
-                    return me;
-                } else {
-                    throw 'inconsistent parameter';
-                }
-            },
-            delete: function (key) {
-                if (storage[key] !== undefined) {
-                    delete storage[key];
-                    return me;
-                } else {
-                    throw 'no such element';
-                }
-            },
-            clean: function (value) {
-                for (el in storage) {
-                    if (storage[el] === value) {
-                        delete storage[el];
-                    }
-                }
-                return me;
-            },
-            getStorage: function () {
-                return storage;
-            },
-            getSize: function (key) {
-                if (storage[key] !== undefined) {
-                    return storage[key].length;
-                } else {
-                    len = 0;
-                    for (key in storage) {
-                        len += storage[key].toString().length;
-                    }
-                    return len;
-                }
-            },
-            find: function (needl) {
-                result = [];
-                for (element in storage) {
-                    if(storage[element].toString().search(RegExp(needl))) {
-                        resultObject = {};
-                        resultObject[element] = storage[element];
-                        result.push(resultObject);
-                    }
-                }
-                return result;
-            }
+    if (!(this instanceof Cache)) {
+        return new Cache();
+    }
 
+    this.storage = {};
+    this.len = 0;
+}
+
+Cache.prototype.add = function add(key, value) {
+    if (this.storage[key] === undefined && value !== undefined && key !== undefined) {
+        if (Object.prototype.toString.call(value) === "[object Object]") { // make JSON if Object
+            value = JSON.stringify(value);
         }
-    return me;
+
+        this.storage[key] = value;
+        return this;
+    }
+    throw 'can\'t add "' + key + '"';
+}
+
+Cache.prototype.get = function get(key) {
+    return this.storage[key] || false;
+};
+
+Cache.prototype.update = function update(key, value) {
+    if (this.storage[key] !== undefined && value !== undefined) {
+        this.storage[key] = value;
+        return this;
+    } else {
+        throw 'inconsistent parameter';
+    }
+};
+Cache.prototype.delete = function deleteItem(key) {
+    if (this.storage[key] !== undefined) {
+        delete this.storage[key];
+        return this;
+    } else {
+        throw 'no such element';
+    }
+};
+
+Cache.prototype.clean = function clean(value) {
+    for (el in this.storage) {
+        if (this.storage[el] === value) {
+            delete this.storage[el];
+        }
+    }
+    return this;
+};
+Cache.prototype.getStorage = function getStorage() {
+    return this.storage;
+};
+Cache.prototype.getSize = function getSize(key) {
+    if (this.storage[key] !== undefined) {
+        return this.storage[key].length;
+    } else {
+        len = 0;
+        for (key in this.storage) {
+            len += this.storage[key].toString().length;
+        }
+        return len;
+    }
+};
+Cache.prototype.find = function find(needl) {
+    result = [];
+    for (element in this.storage) {
+        if (this.storage[element].toString().search(RegExp(needl)) !== -1) {
+            resultObject = {};
+            resultObject[element] = this.storage[element];
+            result.push(resultObject);
+        }
+    }
+    return result;
 }
